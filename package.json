@@ -833,9 +833,8 @@
     "yocto-queue": "^0.1.0"
   },
   "scripts": {
-    "build": "if-env TYPE=server && (cd server && npm install) || (cd client && npm install)",
-    "server": "node ./server/server.js",
-    "client": "cd client && npm start"
+  "build": "if-env TYPE=server && (cd server && npm install && npm run build:server) || (cd client && npm install && npm run build:client)",
+  "client": "cd client && npm start"
   },
   "devDependencies": {
     "css-loader": "^7.1.2",
