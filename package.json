@@ -833,8 +833,10 @@
     "yocto-queue": "^0.1.0"
   },
   "scripts": {
-  "build": "if-env TYPE=server && (cd server && npm install && npm run build:server) || (cd client && npm install && npm run build:client)",
-  "client": "cd client && npm start"
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "cd server && npm install && npm run build",
+    "build:client": "cd client && npm install && npm run build && cd .. && cp -r client/build/* public/",
+    "postbuild": "echo 'Build complete.'"
   },
   "devDependencies": {
     "css-loader": "^7.1.2",
