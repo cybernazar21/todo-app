@@ -836,6 +836,7 @@
     "build": "npm run build:server && npm run build:client",
     "build:server": "cd server && npm install && npm run build",
     "build:client": "cd client && npm install && npm run build && cd .. && cp -r client/build/* public/",
+    "ci-build": "cross-env CI=false npm run build:server && cross-env CI=false npm run build:client",
     "postbuild": "echo 'Build complete.'"
   },
   "devDependencies": {
